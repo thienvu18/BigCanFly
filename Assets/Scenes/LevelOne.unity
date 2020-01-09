@@ -522,8 +522,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -79.2, y: 7.9}
-  m_SizeDelta: {x: 300, y: 300}
+  m_AnchoredPosition: {x: -79.2, y: 2}
+  m_SizeDelta: {x: 250, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &201917416
 MonoBehaviour:
@@ -543,7 +543,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 9f61cb5b8c3be2843bf8ee2c1b6efb88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6157ac705f195394a846b0c7a71aa4b9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24188,21 +24188,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bab2a26f247b8f45b72e9e909470466, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coin3: {fileID: 7186541602721825200, guid: 196eeec7a33dd104a99e48e1690f14a3, type: 3}
-  coin5: {fileID: 1460473114863136425, guid: d3ff1ebb31c1a304b9665b6814015d74, type: 3}
-  trapMilkTea: {fileID: 1889896437353786229, guid: 7dc05bb59c8ad784e8de82d59815aa3c,
-    type: 3}
+  coin:
+  - {fileID: 6595344600554461731, guid: 5f0ffc5637dc7c0459d171b199f4cc5f, type: 3}
+  - {fileID: 7186541602721825200, guid: 196eeec7a33dd104a99e48e1690f14a3, type: 3}
+  - {fileID: 1460473114863136425, guid: d3ff1ebb31c1a304b9665b6814015d74, type: 3}
   trapIce:
   - {fileID: 5552053289571087807, guid: b6e3569dc9e1f3e47b6a9d728c2fa7d2, type: 3}
   - {fileID: 203626679958307927, guid: ec91014d646143d458a2c0975e787bbc, type: 3}
   - {fileID: 7037497971842998752, guid: 0146e5cac87729c47ac7a486b26d5644, type: 3}
-  coin1: {fileID: 6595344600554461731, guid: 5f0ffc5637dc7c0459d171b199f4cc5f, type: 3}
   Grass:
   - {fileID: 4121314569425957288, guid: 8601a1cca9ec7be439d3406afce17bc4, type: 3}
   - {fileID: 6102706773016788382, guid: 7d8a9c9ece7ca40499bbd601ceaba84e, type: 3}
   - {fileID: 155845288589700768, guid: 1bef9c08a68444249915137fba415595, type: 3}
   - {fileID: 2406182662880213052, guid: 572a34abfdb1eb442acaec816dfc25b7, type: 3}
   - {fileID: 7166605309079486769, guid: b20786d9fe2d21b41b3ad1be83197e8e, type: 3}
+  trapMilkTea: {fileID: 1889896437353786229, guid: 7dc05bb59c8ad784e8de82d59815aa3c,
+    type: 3}
+  boom: {fileID: 2415582037397345177, guid: 600cb259bd2392d48a3524f0a26ac889, type: 3}
   gamePlayer: {fileID: 690980796}
   countSuperItem: 0
   countCoinx2: 0
