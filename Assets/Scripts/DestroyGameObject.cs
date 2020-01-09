@@ -17,7 +17,6 @@ public class DestroyGameObject : MonoBehaviour
     {
         if ((MainCamera.transform.position.y-transform.position.y) > 10)
         {
-            Debug.Log(MainCamera.transform.position);
             Destroy(gameObject);
         }
     }

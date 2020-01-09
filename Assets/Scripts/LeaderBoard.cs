@@ -16,7 +16,12 @@ public class LeaderBoard : MonoBehaviour
     void Start()
     {
         string[] lines = File.ReadAllLines("Assets//Scripts//HighScore.txt");
-        for (int i = 0; i < lines.Count(); i += 2)
+        int count = 20;
+        if (lines.Count() < 20)
+        {
+            count = lines.Count();
+        }
+        for (int i = 0; i < count; i += 2)
         {
             score[i / 2].number.text = (i / 2 + 1).ToString();
             score[i / 2].playerName.text = lines[i];

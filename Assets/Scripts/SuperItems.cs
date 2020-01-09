@@ -28,6 +28,10 @@ public class SuperItems : MonoBehaviour
                 item = "shield";
                 mapLoad.SetCountSuperItem();
             }
+            if (type == 3)
+            {
+                mapLoad.SetCountCoinx2();
+            }
             Destroy(gameObject);
 
         }
