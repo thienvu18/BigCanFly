@@ -14,11 +14,7 @@ public class MapLoad : MonoBehaviour
     public Transform coin1;//-7.5f->7.5f
 
     //mapload
-    public Transform Grass1;//5.5f->-5.5f
-    public Transform Grass2;
-    public Transform Grass3;
-    public Transform Grass4;
-    public Transform Grass5;
+    public Transform[] Grass=new Transform[5];//5.5f->-5.5f
 
     public PlayerController gamePlayer;
     private int countTime = 0;
@@ -34,9 +30,9 @@ public class MapLoad : MonoBehaviour
         //line[0]: khiên
         string[] lines = File.ReadAllLines("Assets//Scripts//SupperItem.txt");
         countShield = int.Parse(lines[0]);
-        Transform t = null;
-        t = Instantiate(Grass2, new Vector3(6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
-        t = Instantiate(Grass2, new Vector3(-6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
+        //Transform t = null;
+        //t = Instantiate(Grass2, new Vector3(6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
+        //t = Instantiate(Grass2, new Vector3(-6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
 
     }
 
@@ -49,23 +45,23 @@ public class MapLoad : MonoBehaviour
         //mapload cây cỏ
         if (countTime== Random.Range(countTime, countTime + 700))
         {
-            t = Instantiate(Grass1, new Vector3(Random.Range(-5.5f, 5.5f), gamePlayer.transform.position.y + 15, 0), Grass1.rotation) as Transform;
+            t = Instantiate(Grass[0], new Vector3(Random.Range(-5.5f, 5.5f), gamePlayer.transform.position.y + 15, 0), Grass[0].rotation) as Transform;
         }
         if (countTime == Random.Range(countTime, countTime + 600))
         {
-            t = Instantiate(Grass2, new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass2.rotation) as Transform;
+            t = Instantiate(Grass[1], new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass[1].rotation) as Transform;
         }
         if (countTime == Random.Range(countTime, countTime + 500))
         {
-            t = Instantiate(Grass3, new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass3.rotation) as Transform;
+            t = Instantiate(Grass[2], new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass[2].rotation) as Transform;
         }
         if (countTime == Random.Range(countTime, countTime + 400))
         {
-            t = Instantiate(Grass4, new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass4.rotation) as Transform;
+            t = Instantiate(Grass[3], new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass[3].rotation) as Transform;
         }
         if (countTime == Random.Range(countTime, countTime + 400))
         {
-            t = Instantiate(Grass5, new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass5.rotation) as Transform;
+            t = Instantiate(Grass[4], new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass[4].rotation) as Transform;
         }
         //thưởng
         if (countTime == 1000)
