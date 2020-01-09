@@ -10,7 +10,7 @@ public class MapLoad : MonoBehaviour
     public Transform coin3;//-7.5f->7.5f
     public Transform coin5;//-7.5f->7.5f
     public Transform trapMilkTea;//-6.2f->6.2f
-    public Transform trapIce;//-7f->6.5f
+    public Transform[] trapIce=new Transform[3];//-7f->6.5f
     public Transform coin1;//-7.5f->7.5f
 
     //mapload
@@ -111,7 +111,7 @@ public class MapLoad : MonoBehaviour
             }
             if (countTime % 2000 == 0)
             {
-                t = Instantiate(trapIce, new Vector3(Random.Range(-7f, 6.5f), gamePlayer.transform.position.y + 15, 0), trapIce.rotation) as Transform;
+                t = Instantiate(trapIce[Random.Range(0,2)], new Vector3(0, gamePlayer.transform.position.y + 15, 0), trapIce[Random.Range(0, 2)].rotation) as Transform;
             }
         }
     }
