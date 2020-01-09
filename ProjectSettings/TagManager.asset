@@ -12,6 +12,7 @@ TagManager:
   - Boom
   - Checkpoint
   - AddLive
+  - x2
   layers:
   - Default
   - TransparentFX

@@ -93,14 +93,7 @@ public class PlayerController : MonoBehaviour
             // EndGameScreen.SetActive(true);
             // Time.timeScale = 0f;
         }
-
-        if (respawnPoint.x == 60 || respawnPoint.x == 76)
-        {
-            textEndGame.text = "You are winner";
-            pauseMenu.OpenScreen();
-            // EndGameScreen.SetActive(true);
-            // Time.timeScale = 0f;
-        }
+        
     }
 
 
@@ -115,7 +108,6 @@ public class PlayerController : MonoBehaviour
             playerText.text = "     : " + live;
             playerTextEndGame.text = "     : " + live;
             // what happen when player enter the FallDetector zone
-            //gameLevelManager.Respawn();
             respawnPoint.x = transform.position.x;
             respawnPoint.y = transform.position.y + 4;
             transform.position = respawnPoint;
@@ -134,10 +126,6 @@ public class PlayerController : MonoBehaviour
             playerText.text = "     : " + live;
             playerTextEndGame.text = "     : " + live;
         }
-        //if (other.tag == "Checkpoint")
-        //{
-        //    respawnPoint = other.transform.position;
-        //}
         if (other.tag == "MilkTea")
         {
             if (scaleY <= 1f)

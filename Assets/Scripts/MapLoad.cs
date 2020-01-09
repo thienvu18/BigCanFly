@@ -14,7 +14,7 @@ public class MapLoad : MonoBehaviour
     public Transform coin1;//-7.5f->7.5f
 
     //mapload
-    public Transform Grass1;
+    public Transform Grass1;//5.5f->-5.5f
     public Transform Grass2;
     public Transform Grass3;
     public Transform Grass4;
@@ -24,6 +24,7 @@ public class MapLoad : MonoBehaviour
     private int countTime = 0;
     private int countLevel = 1;
     public int countSuperItem = 0;
+    public int countCoinx2 = 0;
     //biến đếm thời gian có hiệu lực của khiên
     private int countShield;
 
@@ -33,33 +34,38 @@ public class MapLoad : MonoBehaviour
         //line[0]: khiên
         string[] lines = File.ReadAllLines("Assets//Scripts//SupperItem.txt");
         countShield = int.Parse(lines[0]);
+        Transform t = null;
+        t = Instantiate(Grass2, new Vector3(6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
+        t = Instantiate(Grass2, new Vector3(-6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("count conin " + countCoinx2);
         countTime++;
         Transform t = null;
         //mapload cây cỏ
-        if(countTime== Random.Range(countTime, countTime + 700))
+        if (countTime== Random.Range(countTime, countTime + 700))
         {
-            t = Instantiate(Grass1, new Vector3(Random.Range(-7.5f, 7.5f), gamePlayer.transform.position.y + 15, 0), Grass1.rotation) as Transform;
+            t = Instantiate(Grass1, new Vector3(Random.Range(-5.5f, 5.5f), gamePlayer.transform.position.y + 15, 0), Grass1.rotation) as Transform;
         }
         if (countTime == Random.Range(countTime, countTime + 600))
         {
-            t = Instantiate(Grass2, new Vector3(Random.Range(-7.5f, 7.5f), gamePlayer.transform.position.y + 15, 0), Grass2.rotation) as Transform;
+            t = Instantiate(Grass2, new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass2.rotation) as Transform;
         }
         if (countTime == Random.Range(countTime, countTime + 500))
         {
-            t = Instantiate(Grass3, new Vector3(Random.Range(-7.5f, 7.5f), gamePlayer.transform.position.y + 15, 0), Grass3.rotation) as Transform;
+            t = Instantiate(Grass3, new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass3.rotation) as Transform;
         }
         if (countTime == Random.Range(countTime, countTime + 400))
         {
-            t = Instantiate(Grass4, new Vector3(Random.Range(-7.5f, 7.5f), gamePlayer.transform.position.y + 15, 0), Grass4.rotation) as Transform;
+            t = Instantiate(Grass4, new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass4.rotation) as Transform;
         }
         if (countTime == Random.Range(countTime, countTime + 400))
         {
-            t = Instantiate(Grass5, new Vector3(Random.Range(-7.5f, 7.5f), gamePlayer.transform.position.y + 15, 0), Grass5.rotation) as Transform;
+            t = Instantiate(Grass5, new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass5.rotation) as Transform;
         }
         //thưởng
         if (countTime == 1000)
@@ -77,6 +83,15 @@ public class MapLoad : MonoBehaviour
         if (countTime % 600 == 0)
         {
             t = Instantiate(coin1, new Vector3(Random.Range(-7.5f, 7.5f), gamePlayer.transform.position.y + 15, 0), coin1.rotation) as Transform;
+        }
+        //x2
+        if (countCoinx2 > 0)
+        {
+            countCoinx2++;
+        }
+        if (countCoinx2 >= 2500)
+        {
+            countCoinx2 = 0;
         }
         //trap
         if (countSuperItem != 0)
@@ -104,5 +119,10 @@ public class MapLoad : MonoBehaviour
     public void SetCountSuperItem()
     {
         this.countSuperItem = 1;
+    }
+    public void SetCountCoinx2()
+    {
+        this.countCoinx2 = 1;
+        Debug.Log("đã ăn item   " + countCoinx2);
     }
 }

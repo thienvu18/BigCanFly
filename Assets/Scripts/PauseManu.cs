@@ -117,8 +117,6 @@ public class PauseManu : MonoBehaviour
     {
         Time.timeScale = 1f;
         endGameScreen.SetActive(false);
-        Debug.Log(playerNameText.text);
-        Debug.Log(playerGame.coins);
         List<KeyValuePair<string, int>> listvalue = loadFromFile("Assets//Scripts//HighScore.txt");
         listvalue.Add(new KeyValuePair<string, int>(playerNameText.text, playerGame.coins));
         sort(listvalue);
