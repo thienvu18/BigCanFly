@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2419374966019960527}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -14.9, y: 22.4, z: 55}
+  m_LocalPosition: {x: 0, y: 22.4, z: 55}
   m_LocalScale: {x: 0.75, y: 0.75, z: 0.75}
   m_Children:
   - {fileID: 6873149569641865506}
@@ -72,7 +72,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5580535897747751741}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.06, y: 2.16, z: 26.44531}
+  m_LocalPosition: {x: -6.74, y: 2.16, z: 26.44531}
   m_LocalScale: {x: 1, y: 0.7, z: 1}
   m_Children: []
   m_Father: {fileID: 5552053289571087807}
@@ -141,7 +141,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -1.1865861, y: 0.547871}
+  m_Offset: {x: -1.3557336, y: 0.94276047}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -152,7 +152,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 6.7564206, y: 1.5961316}
+  m_Size: {x: 6.4181256, y: 0.8063526}
   m_EdgeRadius: 0
 --- !u!1 &6873149569641865533
 GameObject:
@@ -180,7 +180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6873149569641865533}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.08, y: 2.12, z: 26.44531}
+  m_LocalPosition: {x: 2.89, y: 2.12, z: 26.44531}
   m_LocalScale: {x: 1.15, y: 0.8, z: 1.2}
   m_Children: []
   m_Father: {fileID: 5552053289571087807}
@@ -249,7 +249,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.123226166, y: 0.5700698}
+  m_Offset: {x: 0.28370738, y: 0.9347909}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -260,5 +260,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 10.252346, y: 1.551734}
+  m_Size: {x: 9.931383, y: 0.82229173}
   m_EdgeRadius: 0

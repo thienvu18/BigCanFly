@@ -11,8 +11,12 @@ public class MapLoad : MonoBehaviour
     public Transform[] trapIce = new Transform[3];//-7f->6.5f
     //mapload
     public Transform[] Grass = new Transform[5];//5.5f->-5.5f
+    //supper item
+    public Transform[] supperItem= new Transform[3];//5.5f->-5.5f
+
     //trap
     public Transform trapMilkTea;//-6.2f->6.2f
+    public Transform trapPizza;//-6.2f->6.2f
     public GameObject boom;//-6.2f->6.2f
 
     public PlayerController gamePlayer;
@@ -44,6 +48,19 @@ public class MapLoad : MonoBehaviour
             countTime++;
             Transform t = null;
             GameObject m = null;
+            //supper item
+            if (countTime %2000==0)
+            {
+                t = Instantiate(supperItem[1], new Vector3(Random.Range(-5.5f, 5.5f), gamePlayer.transform.position.y + 15, 0), supperItem[1].rotation) as Transform;
+            }
+            if (countTime % 2500 == 0)
+            {
+                t = Instantiate(supperItem[2], new Vector3(Random.Range(-5.5f, 5.5f), gamePlayer.transform.position.y + 15, 0), supperItem[2].rotation) as Transform;
+            }
+            if (countTime % 3000 == 0)
+            {
+                t = Instantiate(supperItem[0], new Vector3(Random.Range(-5.5f, 5.5f), gamePlayer.transform.position.y + 15, 0), supperItem[0].rotation) as Transform;
+            }
             //mapload cây cỏ
             if (countTime == Random.Range(countTime, countTime + 700))
             {
@@ -107,17 +124,23 @@ public class MapLoad : MonoBehaviour
                 {
                     t = Instantiate(trapMilkTea, new Vector3(Random.Range(-6.2f, 6.2f), gamePlayer.transform.position.y + 15, 0), trapMilkTea.rotation) as Transform;
                 }
+                if (countTime % (600 / countLevel) == 0)
+                {
+                    t = Instantiate(trapMilkTea, new Vector3(Random.Range(-6.2f, 6.2f), gamePlayer.transform.position.y + 15, 0), trapMilkTea.rotation) as Transform;
+                }
                 if (countTime % 2000 == 0)
                 {
                     t = Instantiate(trapIce[Random.Range(0, 2)], new Vector3(0, gamePlayer.transform.position.y + 15, 0), trapIce[Random.Range(0, 2)].rotation) as Transform;
                 }
                 if (countTime % 100 == 0)
                 {
-                    m = Instantiate(boom, new Vector3(5.96f, gamePlayer.transform.position.y + 15, 0), Quaternion.identity);
-                    Debug.Log("boooooommmmm"+m.transform.position.y);
-
+                    m = Instantiate(boom);
+                    //m.transform.position = new Vector3(5.96f, gamePlayer.transform.position.y + 15, 0);
+                    m.transform.position = new Vector3(100,100,100);
+                    Debug.Log("boooooommmmm" + m.transform.position.y);
                 }
             }
+
         }
     }
 
