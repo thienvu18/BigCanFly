@@ -26,6 +26,8 @@ public class MapLoad : MonoBehaviour
     public int countCoinx2 = 0;
     //biến đếm thời gian có hiệu lực của khiên
     private int countShield;
+    private int countDouble;
+
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,7 @@ public class MapLoad : MonoBehaviour
         //line[0]: khiên
         string[] lines = File.ReadAllLines("Assets//Scripts//SupperItem.txt");
         countShield = int.Parse(lines[0]);
+        countDouble= int.Parse(lines[2]);
         //Transform t = null;
         //t = Instantiate(Grass2, new Vector3(6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
         //t = Instantiate(Grass2, new Vector3(-6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
@@ -104,7 +107,7 @@ public class MapLoad : MonoBehaviour
             {
                 countCoinx2++;
             }
-            if (countCoinx2 >= 2500)
+            if (countCoinx2 >= countDouble)
             {
                 countCoinx2 = 0;
             }

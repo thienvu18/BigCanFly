@@ -35,6 +35,9 @@ TextureImporter:
   - first:
       213: 4540101810739387580
     second: UISpritesheet_10
+  - first:
+      213: 9130287838229834059
+    second: UISpritesheet_11
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -361,7 +364,7 @@ TextureImporter:
         width: 75
         height: 78
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -369,6 +372,27 @@ TextureImporter:
       bones: []
       spriteID: a02a48507debe504ea779ae5653f10f9
       internalID: 4540101810739387580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UISpritesheet_11
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 504
+        width: 174
+        height: 138
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b05ecb5ffac64404488eefbbf85084e9
+      internalID: 9130287838229834059
       vertices: []
       indices: 
       edges: []

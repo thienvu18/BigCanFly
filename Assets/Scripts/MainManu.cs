@@ -10,6 +10,8 @@ public class MainManu : MonoBehaviour
     public string firstLevel;
     public string secondLevel;
     public string leaderBoard;
+    public string upgrade;
+
 
     public GameObject optionScreen;
 
@@ -142,4 +144,34 @@ public class MainManu : MonoBehaviour
         }
     }
 
+    public void Upgrade()
+    {
+        StartCoroutine(LoadUpgrade());
+    }
+
+    public IEnumerator LoadUpgrade()
+    {
+        loadingScreen.SetActive(true);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(upgrade);
+
+        asyncLoad.allowSceneActivation = false;
+
+        while (!asyncLoad.isDone)
+        {
+            if (asyncLoad.progress >= 0.9f)
+            {
+                loadingText.text = "Press any key to continue";
+                loadingIcon.SetActive(false);
+
+                if (Input.anyKeyDown)
+                {
+                    asyncLoad.allowSceneActivation = true;
+
+                    Time.timeScale = 1f;
+                }
+            }
+
+            yield return null;
+        }
+    }
 }

@@ -121,6 +121,12 @@ public class PauseManu : MonoBehaviour
         listvalue.Add(new KeyValuePair<string, int>(playerNameText.text, playerGame.coins));
         sort(listvalue);
         writeToFile("Assets//Scripts//HighScore.txt", listvalue);
+
+        //ghi diem
+        List<int> listSupperItem = loadFromFileSupper("Assets//Scripts//SupperItem.txt");
+        listSupperItem[1] = listSupperItem[1] + playerGame.coins;
+        writeToFileSupper("Assets//Scripts//SupperItem.txt", listSupperItem);
+        //string[] lines = File.ReadAllLines("Assets//Scripts//SupperItem.txt");
         SceneManager.LoadScene(mainMenuScene);
     }
 
@@ -140,6 +146,22 @@ public class PauseManu : MonoBehaviour
         return result;
     }
 
+    private List<int> loadFromFileSupper(string filename)
+    {
+        var result = new List<int>();
+        var lines = File.ReadAllLines(filename);
+
+        if (lines.Length > 0)
+        {
+            for (int i = 0; i < lines.Length; i += 1)
+            {
+                result.Add(Int32.Parse(lines[i]));
+            }
+        }
+
+        return result;
+    }
+
     private void writeToFile(string filename, List<KeyValuePair<string, int>> scoreBoard)
     {
         using (System.IO.StreamWriter file = new System.IO.StreamWriter(filename))
@@ -148,6 +170,16 @@ public class PauseManu : MonoBehaviour
             {
                 file.WriteLine(user.Key);
                 file.WriteLine(user.Value);
+            }
+        }
+    }
+    private void writeToFileSupper(string filename, List<int> scoreBoard)
+    {
+        using (System.IO.StreamWriter file = new System.IO.StreamWriter(filename))
+        {
+            foreach (int user in scoreBoard)
+            {
+                file.WriteLine(user);
             }
         }
     }
