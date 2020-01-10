@@ -35,7 +35,7 @@ public class MapLoad : MonoBehaviour
         //line[0]: khiên
         string[] lines = File.ReadAllLines("Assets//Scripts//SupperItem.txt");
         countShield = int.Parse(lines[0]);
-        countDouble= int.Parse(lines[2]);
+        countDouble = int.Parse(lines[2]);
         //Transform t = null;
         //t = Instantiate(Grass2, new Vector3(6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
         //t = Instantiate(Grass2, new Vector3(-6f, gamePlayer.transform.position.y + 5, 0), Grass2.rotation) as Transform;
@@ -135,7 +135,7 @@ public class MapLoad : MonoBehaviour
                 {
                     t = Instantiate(trapIce[Random.Range(0, 2)], new Vector3(0, gamePlayer.transform.position.y + 15, 0), trapIce[Random.Range(0, 2)].rotation) as Transform;
                 }
-                if (countTime % 100 == 0)
+                if (countTime % 1500 == 0)
                 {
                     m = Instantiate(boom);
                     m.transform.position = new Vector3(5.96f, gamePlayer.transform.position.y + 15, 0);
