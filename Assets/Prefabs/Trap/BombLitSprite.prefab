@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2415582037397345182}
   - component: {fileID: 2415582037397345183}
   - component: {fileID: 2415582037397345155}
+  - component: {fileID: 836325529908125751}
   m_Layer: 0
   m_Name: BombLitSprite
   m_TagString: Boom
@@ -104,7 +105,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 2
 --- !u!95 &2415582037397345182
 Animator:
   serializedVersion: 3
@@ -200,3 +201,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainCamera: {fileID: 0}
+--- !u!114 &836325529908125751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2415582037397345177}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25bd418a986109448a1eb01db6f86a3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
