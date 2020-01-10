@@ -12,7 +12,7 @@ public class MapLoad : MonoBehaviour
     //mapload
     public Transform[] Grass = new Transform[5];//5.5f->-5.5f
     //supper item
-    public Transform[] supperItem= new Transform[3];//5.5f->-5.5f
+    public Transform[] supperItem = new Transform[3];//5.5f->-5.5f
 
     //trap
     public Transform trapMilkTea;//-6.2f->6.2f
@@ -52,7 +52,7 @@ public class MapLoad : MonoBehaviour
             Transform t = null;
             GameObject m = null;
             //supper item
-            if (countTime %2000==0)
+            if (countTime % 2000 == 0)
             {
                 t = Instantiate(supperItem[1], new Vector3(Random.Range(-5.5f, 5.5f), gamePlayer.transform.position.y + 15, 0), supperItem[1].rotation) as Transform;
             }
@@ -138,9 +138,9 @@ public class MapLoad : MonoBehaviour
                 if (countTime % 100 == 0)
                 {
                     m = Instantiate(boom);
-                    //m.transform.position = new Vector3(5.96f, gamePlayer.transform.position.y + 15, 0);
-                    m.transform.position = new Vector3(100,100,100);
-                    Debug.Log("boooooommmmm" + m.transform.position.y);
+                    m.transform.position = new Vector3(5.96f, gamePlayer.transform.position.y + 15, 0);
+                    // m.transform.position = new Vector3(100,100,100);
+                    Debug.Log($"boooooommmmm pos:{m.transform.position}");
                 }
             }
 
