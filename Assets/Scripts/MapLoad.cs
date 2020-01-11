@@ -86,11 +86,11 @@ public class MapLoad : MonoBehaviour
                 t = Instantiate(Grass[4], new Vector3(Random.Range(-6f, 6f), gamePlayer.transform.position.y + 15, 0), Grass[4].rotation) as Transform;
             }
             //thưởng
-            if (countTime == 1000)
+            if (countTime == 3000)
             {
-                countLevel += 1;//nâng độ khó ở đây(nâng level)
+                countLevel *= 2;//nâng độ khó ở đây(nâng level)
             }
-            if (countTime % 1500 == 0)
+            if (countTime % 1600 == 0)
             {
                 t = Instantiate(coin[2], new Vector3(Random.Range(-7.5f, 7.5f), gamePlayer.transform.position.y + 15, 0), coin[2].rotation) as Transform;
             }
@@ -120,27 +120,30 @@ public class MapLoad : MonoBehaviour
             if (countSuperItem >= countShield)
             {
                 countSuperItem = 0;
+                gamePlayer.playerAnimation.SetBool("isBay", true);
             }
             if (countSuperItem == 0)
             {
-                if (countTime % (400 / countLevel) == 0)
+                if (countTime % (500 / countLevel) == 0)
                 {
-                    t = Instantiate(trapMilkTea, new Vector3(Random.Range(-6.2f, 6.2f), gamePlayer.transform.position.y + 15, 0), trapMilkTea.rotation) as Transform;
+                    if (Random.Range(0, 100) < 50)
+                    {
+                        t = Instantiate(trapMilkTea, new Vector3(Random.Range(-6.2f, 6.2f), gamePlayer.transform.position.y + 15, 0), trapMilkTea.rotation) as Transform;
+                    }
+                    else
+                    {
+                        t = Instantiate(trapPizza, new Vector3(Random.Range(-6.2f, 6.2f), gamePlayer.transform.position.y + 15, 0), trapPizza.rotation) as Transform;
+                    }
                 }
-                if (countTime % (600 / countLevel) == 0)
-                {
-                    t = Instantiate(trapMilkTea, new Vector3(Random.Range(-6.2f, 6.2f), gamePlayer.transform.position.y + 15, 0), trapMilkTea.rotation) as Transform;
-                }
-                if (countTime % 2000 == 0)
+                if (countTime % (2000 / countLevel) == 0)
                 {
                     t = Instantiate(trapIce[Random.Range(0, 2)], new Vector3(0, gamePlayer.transform.position.y + 15, 0), trapIce[Random.Range(0, 2)].rotation) as Transform;
                 }
-                if (countTime % 1500 == 0)
+                if (countTime % (2500 / countLevel) == 0)
                 {
                     m = Instantiate(boom);
                     m.transform.position = new Vector3(5.96f, gamePlayer.transform.position.y + 15, 0);
                     // m.transform.position = new Vector3(100,100,100);
-                    Debug.Log($"boooooommmmm pos:{m.transform.position}");
                 }
             }
 
@@ -149,6 +152,7 @@ public class MapLoad : MonoBehaviour
 
     public void SetCountSuperItem()
     {
+        gamePlayer.playerAnimation.SetBool("isBay", false);
         this.countSuperItem = 1;
     }
     public void SetCountCoinx2()

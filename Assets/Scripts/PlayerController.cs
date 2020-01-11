@@ -14,7 +14,7 @@ public class PlayerController : MonoBehaviour
     public float groundCheckRadius;
     public LayerMask groundLayer;
     private bool isTouchingGround;
-    private Animator playerAnimation;
+    public Animator playerAnimation;
     public Vector3 respawnPoint;
     public LevelManager gameLevelManager;
     public int live = 2;
@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public PauseManu pauseMenu;
     private float scaleX = 0.3f;
     private float scaleY = 0.3f;
-    private int countTimeDie=0;
+    private int countTimeDie = 0;
 
 
     // Start is called before the first frame update
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
             // EndGameScreen.SetActive(true);
             // Time.timeScale = 0f;
         }
-        
+
     }
 
 
@@ -157,7 +157,7 @@ public class PlayerController : MonoBehaviour
     private void SetScale(float scale)
     {
 
-        if (scaleY >= (0.3f-scale))
+        if (scaleY >= (0.3f - scale))
         {
             scaleX += scale;
             scaleY += scale;

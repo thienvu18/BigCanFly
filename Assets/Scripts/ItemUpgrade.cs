@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class ItemUpgrade : MonoBehaviour
 {
     public string ItemName;
+    public string mainMenuScene;
+
     public Sprite ItemSprite;
     public int Level = 1;
     public int UpToLv2Price;
@@ -28,7 +31,7 @@ public class ItemUpgrade : MonoBehaviour
 
     private void setUpgradePrice(int newLevel)
     {
-        int newPrice = UpToLv2Price;
+        int newPrice = 0;
         switch (newLevel)
         {
             case 5:
@@ -43,6 +46,9 @@ public class ItemUpgrade : MonoBehaviour
             case 2:
                 newPrice = UpToLv3Price;
                 break;
+            case 1:
+                newPrice = UpToLv2Price;
+                break;
             default:
                 break;
         }
@@ -51,23 +57,21 @@ public class ItemUpgrade : MonoBehaviour
 
     private void charge(int newLevel)
     {
-        int newPrice = UpToLv2Price;
         switch (newLevel)
         {
             case 5:
-               
                 listSupperItem[1] = listSupperItem[1] - UpToLv5Price;
-                return;
+                break;
             case 4:
-              
+
                 listSupperItem[1] = listSupperItem[1] - UpToLv4Price;
                 break;
             case 3:
-               
+
                 listSupperItem[1] = listSupperItem[1] - UpToLv3Price;
                 break;
             case 2:
-              
+
                 listSupperItem[1] = listSupperItem[1] - UpToLv2Price;
                 break;
             default:
@@ -93,28 +97,32 @@ public class ItemUpgrade : MonoBehaviour
 
     private void onUpgrade()
     {
+        listSupperItem = loadFromFileSupper("Assets//Scripts//SupperItem.txt");
+        Debug.Log($"level: {Level}, price: {listSupperItem[1]}");
+        if (Level == 2 && listSupperItem[1] < UpToLv3Price)
+        {
+            return;
+        }
+        if (Level == 3 && listSupperItem[1] < UpToLv4Price)
+        {
+            return;
+        }
+        if (Level == 4 && listSupperItem[1] < UpToLv5Price)
+        {
+            return;
+        }
+        if (Level == 1 && listSupperItem[1] < UpToLv2Price)
+        {
+            return;
+        }
+
         Level++;
 
         if (Level >= 5)
         {
             disableUpgrade();
         }
-        if (Level == 2 && listSupperItem[1] < UpToLv2Price)
-        {
-            return;
-        }
-        if (Level == 3 && listSupperItem[1] < UpToLv3Price)
-        {
-            return;
-        }
-        if (Level == 4 && listSupperItem[1] < UpToLv4Price)
-        {
-            return;
-        }
-        if (Level == 5 && listSupperItem[1] < UpToLv5Price)
-        {
-            return;
-        }
+
         setUpgradePrice(Level);
         charge(Level);
         updateLevelBar(Level);
@@ -128,6 +136,63 @@ public class ItemUpgrade : MonoBehaviour
         //1: toon tien
         listSupperItem = loadFromFileSupper("Assets//Scripts//SupperItem.txt");
         coin.text = "$" + listSupperItem[1];
+
+        if (ItemName == "Double")
+        {
+            if (listSupperItem[2] == 1000)
+            {
+                Level = 1;
+            }
+            else
+        if (listSupperItem[2] == 1300)
+            {
+                Level = 2;
+            }
+            else
+        if (listSupperItem[2] == 1600)
+            {
+                Level = 3;
+            }
+            else
+        if (listSupperItem[2] == 1900)
+            {
+                Level = 4;
+            }
+            else
+        if (listSupperItem[2] == 2200)
+            {
+                Level = 5;
+            }
+
+        }
+        else if (ItemName == "Jetpack")
+        {
+            if (listSupperItem[0] == 1000)
+            {
+                Level = 1;
+            }
+            else
+        if (listSupperItem[0] == 1300)
+            {
+                Level = 2;
+            }
+            else
+        if (listSupperItem[0] == 1600)
+            {
+                Level = 3;
+            }
+            else
+        if (listSupperItem[0] == 1900)
+            {
+                Level = 4;
+            }
+            else
+        if (listSupperItem[0] == 2200)
+            {
+                Level = 5;
+            }
+
+        }
 
         Image icon = this.gameObject.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetComponent<Image>();
         icon.sprite = ItemSprite;
@@ -171,6 +236,12 @@ public class ItemUpgrade : MonoBehaviour
                 file.WriteLine(user);
             }
         }
+    }
+
+    public void QuitToMain()
+    {
+        SceneManager.LoadScene(mainMenuScene);
+        Time.timeScale = 1f;
     }
 
 }
